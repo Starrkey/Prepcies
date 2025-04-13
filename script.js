@@ -1,88 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // If the URL has a hash (like #main-content), prevent auto-scroll
-    if (window.location.hash) {
-        window.scrollTo(0, 0); // Scroll to top
-        history.replaceState(null, null, window.location.pathname); // Remove the hash from URL
-    }
-
-    // Handle CTA button behavior
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function () {
-            setTimeout(() => {
-                history.replaceState(null, null, ' '); // Remove the hash on button click
-            }, 100); // Slight delay to let scroll happen
-        });
-    }
-});
-
-// Carousel logic for services section
-document.addEventListener("DOMContentLoaded", () => {
-    const servicesTrack = document.querySelector('.services-track');
-    const leftButton = document.querySelector('.carousel-btn.left');
-    const rightButton = document.querySelector('.carousel-btn.right');
-
-    // Check if carousel elements exist before applying logic
-    if (servicesTrack && leftButton && rightButton) {
-        const scrollAmount = 300; // Customize the scroll distance
-
-        leftButton.addEventListener('click', () => {
-            servicesTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
-
-        rightButton.addEventListener('click', () => {
-            servicesTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Burger menu toggle functionality
-    const burgerMenu = document.querySelector('.burger-menu');
-    const burgerMenuContent = document.querySelector('.burger-menu-content');
-    
-    if (burgerMenu && burgerMenuContent) {
-        burgerMenu.addEventListener('click', function () {
-            
-            burgerMenuContent.classList.toggle('active'); // Toggle the mobile menu
-            
-
-            // Lock or unlock body scroll
-            if (burgerMenuContent.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.navbar ul li a, .burger-menu-content ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            const targetId = this.getAttribute('href').substring(1); // Get target section ID
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50, // Adjust the scroll position (offset)
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Close mobile menu when a menu item is clicked
-    const menuItems = document.querySelectorAll('.burger-menu-content ul li a');
-    menuItems.forEach(item => {
-        item.addEventListener('click', function () {
-            burgerMenuContent.classList.remove('active'); // Close menu after clicking
-            document.body.style.overflow = 'auto'; // Re-enable scroll when menu closes
-        });
-    });
-});
-
-
 // Story carousel
 document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll(".story-slide");
@@ -156,3 +71,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showSlide(0);
   });
+
+  // BURGER MENU
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  // Toggle the mobile menu visibility when the logo is clicked
+  burger.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+  });
+  
+  // Close the mobile menu when any link is clicked
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+    });
+  });
+  
+  // STARZZZ
+  document.addEventListener("DOMContentLoaded", function() {
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach(star => {
+        // Randomize the position of each star
+        const xPos = Math.random() * 100; // Random horizontal position (0 to 100%)
+        const yPos = Math.random() * 100; // Random vertical position (0 to 100%)
+        
+        // Randomize the size of each star for variety
+        const size = Math.random() * 3 + 1; // Random size between 1px and 4px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+
+        // Set the star position
+        star.style.left = `${xPos}%`;
+        star.style.top = `${yPos}%`;
+
+        // Add random opacity to make stars look more natural
+        star.style.opacity = Math.random() * 0.5 + 0.3;
+    });
+});
+
+//PANETSZZZZ 

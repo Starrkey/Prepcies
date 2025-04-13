@@ -10,144 +10,166 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="#">Logo</a>
-            </div>
-            <ul class="menu">
-                <li><a href="#landing-page">Home</a></li>
-                <li><a href="#main-content">About</a></li>
-                <li><a href="#tiktok-section">TikTok</a></li>
-                <li><a href="#process-section">Process</a></li>
-                <li><a href="#services-section">Services</a></li>
-                <li><a href="#our-team">Team</a></li>
-                <li><a href="#footer">Contact</a></li>
-            </ul>
-        
-        </nav>
-        <!-- Burger menu content for mobile view -->
-        <div class="burger-menu-content">
-            <ul>
-                <li><a href="#landing-page">Home</a></li>
-                <li><a href="#main-content">About</a></li>
-                <li><a href="#tiktok-section">TikTok</a></li>
-                <li><a href="#process-section">Process</a></li>
-                <li><a href="#services-section">Services</a></li>
-                <li><a href="#our-team">Team</a></li>
-                <li><a href="#footer">Contact</a></li>
-            </ul>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <!-- Logo (acting as Burger Icon) -->
+        <div class="logo" id="burger">
+          <img src="./Prepcies.png" alt="Prepcies Logo" class="logo-image" />
         </div>
-    </header>
-    
-    <!-- Landing Page (Yellow Section) -->
-    <section id="landing-page" class="landing-page">
-        <h1>Ready to Actually Learn Something?</h1>
-        <p>I don't waste time. I teach real skills, in a real way, that gets real results. Let’s get started.</p>
-        <a href="#main-content" class="cta-button">Start Learning</a>
-    </section>
+        
+        <!-- Empty space to fill the space between logo and burger -->
+        <div class="empty-space"></div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#landing-page">Home</a>
+          <a href="#our-team">Our Team</a>
+          <a href="#process-section">Process</a>
+          <a href="#main-content">Main Content</a>
+          <a href="#services-section">Services</a>
+          <a href="#story-video-section">Stories</a>
+        </div>
+      </header>
 
-    <!-- Main Content (Dark Blue Section) -->
-    <section id="main-content" class="main-content">
-        <h2>Why This Exists</h2>
-        <p>You’re not here for fluff, and I’m not here to give it. I built this platform because I got tired of bad teachers, fake gurus, and wasted potential. This is where you learn things that actually matter, from someone who knows what they’re doing — me.</p>
-    </section>
-    
+
+      <!-- LANDING PAGE -->
+<section id="landing-page" class="landing-page">
+    <div class="planets">
+        <!-- 10 orbiting planets -->
+        <div class="orbit-wrapper" id="orbit1"><div class="planet" id="planet1"></div></div>
+        <div class="orbit-wrapper" id="orbit2"><div class="planet" id="planet2"></div></div>
+        <div class="orbit-wrapper" id="orbit3"><div class="planet" id="planet3"></div></div>
+        <div class="orbit-wrapper" id="orbit4"><div class="planet" id="planet4"></div></div>
+        <div class="orbit-wrapper" id="orbit5"><div class="planet" id="planet5"></div></div>
+        <div class="orbit-wrapper" id="orbit6"><div class="planet" id="planet6"></div></div>
+        <div class="orbit-wrapper" id="orbit7"><div class="planet" id="planet7"></div></div>
+        <div class="orbit-wrapper" id="orbit8"><div class="planet" id="planet8"></div></div>
+        <div class="orbit-wrapper" id="orbit9"><div class="planet" id="planet9"></div></div>
+        <div class="orbit-wrapper" id="orbit10"><div class="planet" id="planet10"></div></div>
+      </div>
+<!-- Flickering Stars -->
+    <div class="stars">
+    <!-- 60 stars -->
+    <!-- You can copy/paste more for denser effect -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+
+  <h1 id="typing-effect">Ready to Learn?</h1>
+  <p id="keystroke-text">I don't waste time. I teach real skills, in a real way, that gets real results. Let’s get started.</p>
+  <a href="#main-content" class="cta-button">Start Learning</a>
+</section>
+
     <!-- Team Section -->
     <section id="our-team" class="our-team">
         <h2>Our Team</h2>
         <div class="carousel">
             <div class="carousel-track">
                 <div class="team-member">
-                    <img src="./1.png" alt="John Doe">
-                    <h3>John Doe</h3>
-                    <p>Founder</p>
+                    <img src="./1.png" alt="Mariam Nikoleishvili, Tutor">
+                    <h3>Mariam Nikoleishvili</h3>
+                    <p>Director</p>
                 </div>
                 <div class="team-member">
-                    <img src="./2.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./2.png" alt="Lana Kirkitadze, Tutor">
+                    <h3>Lana Kirkitadze</h3>
+                    <p>Tutor</p>
                 </div>
                 <div class="team-member">
-                    <img src="./3.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./3.png" alt="Nikoloz Kherkheulidze, Lead Trainer">
+                    <h3>Nikoloz Kherkheulidze</h3>
+                    <p>Lead Trainer</p>
                 </div>
                 <div class="team-member">
-                    <img src="./4.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./5.png" alt="Mariam Javakhia, Director">
+                    <h3>Mariam Javakhia</h3>
+                    <p>Tutor</p>
                 </div>
                 <div class="team-member">
-                    <img src="./5.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./6.png" alt="Misha Sukhitashvili, Quality Control">
+                    <h3>Misha Sukhitashvili</h3>
+                    <p>Quality Control</p>
                 </div>
                 <div class="team-member">
-                    <img src="./6.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./1.png" alt="Mariam Nikoleishvili, Tutor">
+                    <h3>Mariam Nikoleishvili</h3>
+                    <p>Director</p>
                 </div>
                 <div class="team-member">
-                    <img src="./7.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./2.png" alt="Lana Kirkitadze, Tutor">
+                    <h3>Lana Kirkitadze</h3>
+                    <p>Tutor</p>
                 </div>
                 <div class="team-member">
-                    <img src="./8.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./3.png" alt="Nikoloz Kherkheulidze, Lead Trainer">
+                    <h3>Nikoloz Kherkheulidze</h3>
+                    <p>Lead Trainer</p>
                 </div>
                 <div class="team-member">
-                    <img src="./9.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <!-- Repeat for all team members -->
-                <div class="team-member">
-                    <img src="./1.png" alt="John Doe">
-                    <h3>John Doe</h3>
-                    <p>Founder</p>
+                    <img src="./5.png" alt="Mariam Javakhia, Director">
+                    <h3>Mariam Javakhia</h3>
+                    <p>Tutor</p>
                 </div>
                 <div class="team-member">
-                    <img src="./2.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./3.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./4.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./5.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./6.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./7.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./8.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="./9.png" alt="Jane Smith">
-                    <h3>Jane Smith</h3>
-                    <p>Lead Developer</p>
+                    <img src="./6.png" alt="Misha Sukhitashvili, Quality Control">
+                    <h3>Misha Sukhitashvili</h3>
+                    <p>Quality Control</p>
                 </div>
             </div>
         </div>
@@ -173,6 +195,12 @@
                 <p>You pay how it works for you — either invoice + bank transfer or secure checkout on the site.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Main Content (Dark Blue Section) -->
+    <section id="main-content" class="main-content">
+        <h2>Why This Exists</h2>
+        <p>You’re not here for fluff, and I’m not here to give it. I built this platform because I got tired of bad teachers, fake gurus, and wasted potential. This is where you learn things that actually matter, from someone who knows what they’re doing — me.</p>
     </section>
 
     <!-- About Me Section -->
@@ -244,17 +272,11 @@
           <!-- Global volume control -->
           <div class="volume-control global-volume-control">
             <button class="volume-btn muted" title="Toggle Mute"></button>
-            <input type="range" class="volume-slider" min="0" max="1" step="0.05" value="0" />
+            <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1">
           </div>
         </div>
-      </section>
+    </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Real Learning | Built By Me, For You</p>
-    </footer>
-
-    <!-- Link to external JS file -->
     <script src="./script.js"></script>
 </body>
 </html>

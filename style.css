@@ -20,135 +20,136 @@ body {
 section {
     padding: 0 10px; /* 10px gap from left and right for all sections */
 }
+/* NAVBAR TIME */
+/* General Styles for the navbar */
+/* General Styles for the navbar */
 
-/* Navbar and Burger Menu Styles */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #1D3557;
-    color: #FFDD00;
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
+    justify-content: space-between; /* Space out the logo and burger */
+    height: 60px;
+    padding: 0 40px;
+    background-color: #9900ff;
+    color: white;
+    position: sticky;
     top: 0;
-    left: 0;
-    padding-top: 120px;
-    margin-top: -120px;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar .logo a {
-    color: #FFDD00;
-    font-size: 2rem;
-    text-decoration: none;
-}
-
-.navbar ul {
-    list-style: none;
+    width: 100%;
+  }
+  
+  /* Logo (Burger Icon) Styling */
+  .logo {
     display: flex;
-    gap: 20px;
-}
-
-.navbar ul li a {
-    color: #FFDD00;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.burger-menu {
-    display: none; /* Hide the burger icon by default */
+    align-items: center;
+    cursor: pointer; /* Make the logo clickable like a burger icon */
+  }
+  
+  .logo-image {
+    max-height: 80%;
+    width: auto;
+    object-fit: contain;
+    height: 48px;
+  }
+  
+  /* Empty space between the logo and burger (it will grow to take available space) */
+  .empty-space {
+    flex-grow: 1;
+  }
+  
+  /* Mobile menu styles */
+ /* Mobile menu styles */
+.mobile-menu {
+    display: none; /* Hidden by default */
     flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.burger-menu .burger-icon {
-    width: 30px;
-    height: 4px;
-    background-color: #FFDD00;
-    border-radius: 2px;
-}
-
-/* Mobile menu content */
-.burger-menu-content {
-    display: none;
-    position: center; /* critical */
-    top: 0;
+    background-color: #333;
+    position: fixed; /* Changed to fixed to stay on top */
+    top: 60px; /* Adjust to align just below the navbar */
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #FFDD00;
-    z-index: 9999; /* on top of absolutely everything */
-    padding-top: 80px;
-    text-align: center;
-    overflow-y: auto; /* in case content exceeds height */
-}
-
-.burger-menu-content.active {
-    display: block;
-}
-
-.burger-menu-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.burger-menu-content ul li {
-    padding: 10px 0;
-}
-
-.burger-menu-content ul li a {
-    color: #FFDD00;
+    width: 100%; /* Ensure the menu spans the full width */
+    z-index: 999;
+  }
+  
+  .mobile-menu a {
+    color: white;
     text-decoration: none;
+    padding: 8px 0;
     font-size: 1.2rem;
-}
-
-/* Responsive Styles */
-@media (max-width: 767px) {
-    .burger-menu {
-        display: flex;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .mobile-menu a:hover {
+    color: #FFDD00;
+  }
+  
+  /* RESPONSIVE STYLES (Mobile) */
+  @media (max-width: 768px) {
+    /* Hide the navigation links */
+    .nav-links {
+      display: none;
     }
-
-    .navbar ul {
-        display: none;
+  
+    /* Ensure logo remains visible on mobile (and works as the burger icon) */
+    .logo {
+      order: 1;
     }
-
-    .burger-menu-content.active ul {
-        display: block;
-        position: relative;
-    }
-}
-
+  }
+  
+  
 /* Landing page (yellow top part) */
+/* Landing page */
 .landing-page {
-    background-color: #FFDD00;
-    color: #000000;
+    background-color: #2a2a2a; /* Darker background */
+    color: #FFDD00; /* Yellow text color */
     text-align: center;
     height: 100vh;
+    width: 100%;
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 0 10px; /* 10px gap from left and right */
+    padding: 20px; /* Added padding to avoid text touching edges */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-.landing-page h1 {
-    font-size: 3rem;
+/* Text Typing */
+#typing-effect {
+    font-size: 3rem; /* Default font size for larger screens */
     margin-bottom: 20px;
+    display: inline-block;
+    border-right: 3px solid black;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+    z-index: 3;
 }
 
-.landing-page p {
+/* Keystroke Text */
+#keystroke-text {
     font-size: 1.2rem;
     margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 6s forwards;
+    z-index: 3;
 }
 
-.landing-page .cta-button {
+/* Keyframe for typing animation */
+@keyframes typing {
+    to {
+        width: 100%;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* CTA Button */
+.cta-button {
     background-color: #1D3557;
     color: #FFDD00;
     padding: 15px 30px;
@@ -157,12 +158,81 @@ html {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 3;
 }
 
-.landing-page .cta-button:hover {
+/* CTA Button hover effect */
+.cta-button:hover {
     background-color: #A8DADC;
-    transition: background-color 0.3s ease;
 }
+
+/* Stars (starfield effect) */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0; /* Make sure stars are behind the content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: flicker 2s infinite ease-in-out;
+}
+
+/* Flicker animation for stars */
+@keyframes flicker {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Scatter the stars randomly using JS */
+.stars .star {
+    animation: flicker 2s infinite ease-in-out;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    #typing-effect {
+        font-size: 2rem; /* Smaller font size on mobile */
+        margin-bottom: 10px;
+        width: 0;
+        animation: typing 4s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    #keystroke-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 6s forwards;
+    }
+
+    .cta-button {
+        padding: 12px 25px; /* Slightly smaller padding on mobile */
+        font-size: 1rem; /* Smaller font size for the button */
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    #typing-effect {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* PLANETSZZZZZZ*/
+
+
+
 
 /* Main content below landing page (dark blue part) */
 .main-content {
@@ -175,6 +245,7 @@ html {
 .main-content h2 {
     font-size: 2rem; /* Standard font size for all h2 headings */
     margin-bottom: 20px;
+    margin-top: 5%;
 }
 
 .main-content p {
@@ -187,7 +258,7 @@ html {
     padding: 20px;
     text-align: center;
   }
-
+  
   .story-wrapper {
     position: relative;
     width: 300px;
@@ -197,26 +268,28 @@ html {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     background: #000;
+    transition: all 0.3s ease;
   }
-
+  
+  /* Slide styles */
   .story-slide {
     display: none;
     width: 100%;
     height: 100%;
     position: relative;
   }
-
+  
   .story-slide.active {
     display: block;
   }
-
+  
   .story-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     cursor: pointer;
   }
-
+  
   /* Tap zones */
   .tap-zone {
     position: absolute;
@@ -225,15 +298,15 @@ html {
     height: 100%;
     z-index: 10;
   }
-
+  
   .left-zone {
     left: 0;
   }
-
+  
   .right-zone {
     right: 0;
   }
-
+  
   /* Volume Button + Slider */
   .volume-control {
     position: absolute;
@@ -244,7 +317,7 @@ html {
     align-items: center;
     z-index: 20;
   }
-
+  
   .volume-btn {
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
@@ -257,19 +330,19 @@ html {
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
-
+  
   .volume-btn:hover {
     background-color: rgba(255, 255, 255, 1);
   }
-
+  
   .volume-btn.muted {
     background-image: url("data:image/svg+xml,%3Csvg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 12c0-.8-.1-1.6-.4-2.3l1.5-1.5c.6 1.1.9 2.4.9 3.8s-.3 2.7-.9 3.8l-1.5-1.5c.3-.7.4-1.5.4-2.3zM5 9v6h4l5 5V4l-5 5H5z'/%3E%3C/svg%3E");
   }
-
+  
   .volume-btn.unmuted {
     background-image: url("data:image/svg+xml,%3Csvg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 9v6h4l5 5V4l-5 5H5zm11.5 3c0-1.1-.3-2.2-.8-3.1l1.3-1.3c.7 1.2 1.1 2.7 1.1 4.4s-.4 3.2-1.1 4.4l-1.3-1.3c.5-.9.8-2 .8-3.1z'/%3E%3C/svg%3E");
   }
-
+  
   .volume-slider {
     writing-mode: bt-lr;
     appearance: slider-vertical;
@@ -280,11 +353,11 @@ html {
     opacity: 0;
     transition: opacity 0.2s ease;
   }
-
+  
   .volume-control:hover .volume-slider {
     opacity: 1;
   }
-
+  
   .volume-slider::-webkit-slider-thumb {
     appearance: none;
     width: 10px;
@@ -293,15 +366,68 @@ html {
     border-radius: 50%;
     cursor: pointer;
   }
-
-
+  
+  /* Arrow Styles (Always visible) */
+  .scroll-arrows {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    right: 2px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 20;
+    opacity: 1;  /* Keep arrows always visible */
+    pointer-events: none; /* Make the arrows non-interactive */
+  }
+  
+  .scroll-arrows .arrow-left,
+  .scroll-arrows .arrow-right {
+    background-color: rgba(255, 255, 255, 0.5); /* Light color */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Left arrow (moved to the right side) */
+  .scroll-arrows .arrow-left {
+    transform: rotate(180deg); /* Make it point right */
+  }
+  
+  /* Right arrow (moved to the left side) */
+  .scroll-arrows .arrow-right {
+    transform: rotate(0deg); /* Make it point left */
+  }
+  
+  /* Arrow icon */
+  .scroll-arrows .arrow-left::before,
+  .scroll-arrows .arrow-right::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: rotate(45deg);
+  }
+  
+  /* Hover effect on arrows */
+  .scroll-arrows .arrow-left:hover,
+  .scroll-arrows .arrow-right:hover {
+    background-color: rgba(255, 255, 255, 1); /* More visible when hovered */
+  }
+  
+  
 /* About Me Section */
 .about-me {
     background-color: #F1F1F1;
     color: #333333;
     padding: 50px 10px; /* 10px gap from left and right */
     text-align: center;
-    max-width: 1200px;
+    max-width: 100vw;
     margin: 0 auto;
 }
 
@@ -480,128 +606,106 @@ footer {
 }
 
 /* Mobile responsiveness (small screens like phones) */
-@media (max-width: 767px) {
-    section {
-        padding: 0 10px; /* 10px gap from left and right for all sections */
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 20px;
+      align-items: flex-start;
     }
-
-    .landing-page {
-        padding: 60px 10px;
+  
+    .logo-image {
+      max-height: 50px;
     }
-
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .nav-links a {
+      padding: 10px 0;
+      font-size: 1rem;
+      width: 100%;
+    }
+  
     .landing-page h1 {
-        font-size: 2.5rem;
+      font-size: 2.2rem;
     }
-
-    .landing-page p {
-        font-size: 1rem;
+  
+    .landing-page p,
+    .main-content p,
+    .about-me p {
+      font-size: 1rem;
     }
-
-    .landing-page .cta-button {
-        padding: 12px 24px;
-        font-size: 1rem;
+  
+    .process-steps.compact {
+      gap: 20px;
     }
-
-    .main-content {
-        padding: 30px 10px;
+  
+    .team-member {
+      width: 160px;
     }
-
-    .main-content h2 {
-        font-size: 2rem; /* Standard font size for all h2 headings */
-        margin-bottom: 20px;
-        margin-top : 5%;
+  
+    .team-member img {
+      width: 160px;
+      height: 160px;
     }
-
-    .main-content p {
-        font-size: 1rem;
+  }
+  
+  /* Phones (480px and below) */
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 10px;
     }
-
-    .tiktok-reels {
-        padding: 30px 10px;
+  
+    .nav-links {
+      align-items: flex-start;
     }
-
-    .tiktok-reels h2 {
-        font-size: 1.8rem;
+  
+    .nav-links a {
+      font-size: 0.9rem;
     }
-
-    .tiktok-reels .video-container iframe {
-        width: 90%;
-        height: 400px;
+  
+    .logo-image {
+      max-height: 40px;
     }
-
-    .about-me {
-        padding: 30px 10px;
-    }
-
-    footer {
-        padding: 10px 0;
-    }
-
-    /* Show the burger menu on mobile */
-    .burger-menu {
-        display: block;
-    }
-
-    /* Hide the navbar links */
-    .navbar ul {
-        display: none;
-    }
-}
-
-/* Tablet responsiveness (medium screens like iPads) */
-@media (max-width: 1024px) {
-    section {
-        padding: 0 10px; /* Keep the same 10px gap */
-    }
-
-    .landing-page {
-        padding: 70px 10px;
-    }
-
+  
     .landing-page h1 {
-        font-size: 2.8rem;
+      font-size: 1.8rem;
     }
-
+  
     .landing-page p {
-        font-size: 1.1rem;
+      font-size: 0.95rem;
     }
-
-    .landing-page .cta-button {
-        padding: 14px 28px;
-        font-size: 1.1rem;
+  
+    .main-content h2,
+    .services-section h2,
+    .our-team h2,
+    .about-me h2 {
+      font-size: 1.5rem;
     }
-
-    .main-content {
-        padding: 40px 10px;
+  
+    .main-content p,
+    .about-me p,
+    .team-member p {
+      font-size: 1rem;
     }
-
-    .main-content h2 {
-        font-size: 1.8rem;
+  
+    .team-member {
+      width: 140px;
     }
-
-    .main-content p {
-        font-size: 1.1rem;
+  
+    .team-member img {
+      width: 140px;
+      height: 140px;
     }
-
-    .tiktok-reels {
-        padding: 40px 10px;
+  
+    .carousel-track {
+      gap: 20px;
     }
-
-    .about-me {
-        padding: 40px 10px;
-    }
-
-    footer {
-        padding: 15px 0;
-    }
-
-    /* Show burger menu on tablets */
-    .burger-menu {
-        display: block;
-    }
-
-    /* Show navbar links after clicking burger */
-    .burger-menu-content.open {
-        display: block;
-    }
-}
+  }
+  

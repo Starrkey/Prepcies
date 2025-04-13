@@ -214,14 +214,40 @@
     </section>
 
     <!-- TikTok Reels/Videos Section -->
-    <section id="tiktok-section" class="tiktok-section">
-        <h2><i class="fab fa-tiktok"></i> TikToks That Actually Teach</h2>
-        <div class="tiktok-container">
-            <iframe class="tiktok-embed" src="https://www.tiktok.com/embed/7492457655974333701" frameborder="0" allowfullscreen></iframe>
-            <iframe class="tiktok-embed" src="https://www.tiktok.com/embed/7492374692594978054" frameborder="0" allowfullscreen></iframe>
-            <iframe class="tiktok-embed" src="https://www.tiktok.com/embed/7492033526678686982" frameborder="0" allowfullscreen></iframe>
+    <section id="story-video-section" class="story-video-section">
+        <h2><i class="fab fa-facebook"></i> Stories That Teach</h2>
+        <div class="story-wrapper">
+          <div class="story-slide active">
+            <video class="story-video" muted autoplay playsinline>
+              <source src="./Vid1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="story-slide">
+            <video class="story-video" muted playsinline>
+              <source src="./Vid2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="story-slide">
+            <video class="story-video" muted playsinline>
+              <source src="./Vid3.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="story-slide">
+            <video class="story-video" muted playsinline>
+              <source src="./Vid4.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <!-- Tap areas -->
+          <div class="tap-zone left-zone"></div>
+          <div class="tap-zone right-zone"></div>
+      
+          <!-- Global volume control -->
+          <div class="volume-control global-volume-control">
+            <button class="volume-btn muted" title="Toggle Mute"></button>
+            <input type="range" class="volume-slider" min="0" max="1" step="0.05" value="0" />
+          </div>
         </div>
-    </section>
+      </section>
 
     <!-- Footer Section -->
     <footer>

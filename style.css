@@ -10,6 +10,10 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     height: 100%;
+    
+        margin: 0;
+        background-color: #A8DADC;
+    
 }
 
 /* Universal section container to create consistent gaps on left and right */
@@ -29,6 +33,8 @@ section {
     width: 100%;
     top: 0;
     left: 0;
+    padding-top: 120px;
+    margin-top: -120px;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -177,36 +183,117 @@ html {
 }
 
 /* TikTok Section */
-.tiktok-section {
-    background-color: #A8DADC;
-    color: #1D3557;
+.story-video-section {
+    padding: 20px;
     text-align: center;
-    padding: 40px 0;  /* Added padding for top and bottom, no side padding */
-}
+  }
 
-.tiktok-section h2 {
-    font-size: 2rem; /* Standard font size for all h2 headings */
-    padding: 40px 0 20px;
-}
+  .story-wrapper {
+    position: relative;
+    width: 300px;
+    height: 533px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: #000;
+  }
 
-.tiktok-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    scroll-snap-type: y mandatory;
-    overflow-y: auto;
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the content horizontally */
-}
-
-.tiktok-embed {
+  .story-slide {
+    display: none;
     width: 100%;
-    height: 90vh;
+    height: 100%;
+    position: relative;
+  }
+
+  .story-slide.active {
+    display: block;
+  }
+
+  .story-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  /* Tap zones */
+  .tap-zone {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .left-zone {
+    left: 0;
+  }
+
+  .right-zone {
+    right: 0;
+  }
+
+  /* Volume Button + Slider */
+  .volume-control {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    z-index: 20;
+  }
+
+  .volume-btn {
+    background-color: rgba(255, 255, 255, 0.8);
     border: none;
-    border-radius: 12px;
-    scroll-snap-align: start;
-}
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .volume-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .volume-btn.muted {
+    background-image: url("data:image/svg+xml,%3Csvg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 12c0-.8-.1-1.6-.4-2.3l1.5-1.5c.6 1.1.9 2.4.9 3.8s-.3 2.7-.9 3.8l-1.5-1.5c.3-.7.4-1.5.4-2.3zM5 9v6h4l5 5V4l-5 5H5z'/%3E%3C/svg%3E");
+  }
+
+  .volume-btn.unmuted {
+    background-image: url("data:image/svg+xml,%3Csvg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 9v6h4l5 5V4l-5 5H5zm11.5 3c0-1.1-.3-2.2-.8-3.1l1.3-1.3c.7 1.2 1.1 2.7 1.1 4.4s-.4 3.2-1.1 4.4l-1.3-1.3c.5-.9.8-2 .8-3.1z'/%3E%3C/svg%3E");
+  }
+
+  .volume-slider {
+    writing-mode: bt-lr;
+    appearance: slider-vertical;
+    width: 4px;
+    height: 80px;
+    background: #ccc;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .volume-control:hover .volume-slider {
+    opacity: 1;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
 
 /* About Me Section */
 .about-me {
@@ -277,7 +364,7 @@ html {
     color: white;
     text-align: center;
     overflow: hidden;
-    max-width: 1200px;
+    max-width: 100vw;
     margin: 0 auto;
 }
 
@@ -420,7 +507,9 @@ footer {
     }
 
     .main-content h2 {
-        font-size: 1.5rem;
+        font-size: 2rem; /* Standard font size for all h2 headings */
+        margin-bottom: 20px;
+        margin-top : 5%;
     }
 
     .main-content p {

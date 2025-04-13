@@ -81,3 +81,78 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+// Story carousel
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".story-slide");
+    const volumeBtn = document.querySelector(".global-volume-control .volume-btn");
+    const volumeSlider = document.querySelector(".global-volume-control .volume-slider");
+    let currentIndex = 0;
+
+    const videos = document.querySelectorAll(".story-video");
+
+    // Function to update volume for all videos
+    const updateVolumeUI = () => {
+      videos.forEach((video) => {
+        volumeBtn.classList.toggle("muted", video.muted || video.volume === 0);
+        volumeBtn.classList.toggle("unmuted", !video.muted && video.volume > 0);
+        volumeSlider.value = video.volume;
+      });
+    };
+
+    const showSlide = (index) => {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        const video = slide.querySelector("video");
+        if (i === index) {
+          slide.classList.add("active");
+          video.currentTime = 0;
+          video.play();
+        } else {
+          slide.classList.remove("active");
+          video.pause();
+        }
+      });
+
+      updateVolumeUI();
+    };
+
+    document.querySelector(".left-zone").addEventListener("click", () => {
+      showSlide(currentIndex - 1);
+    });
+
+    document.querySelector(".right-zone").addEventListener("click", () => {
+      showSlide(currentIndex + 1);
+    });
+
+    // Global Volume Button
+    volumeBtn.addEventListener("click", () => {
+      videos.forEach((video) => {
+        video.muted = !video.muted;
+      });
+      updateVolumeUI();
+    });
+
+    // Global Volume Slider
+    volumeSlider.addEventListener("input", (e) => {
+      const volume = e.target.value;
+      videos.forEach((video) => {
+        video.volume = volume;
+        video.muted = volume == 0;
+      });
+      updateVolumeUI();
+    });
+
+    // Auto move to next slide
+    videos.forEach((video) => {
+      video.addEventListener("ended", () => {
+        showSlide(currentIndex + 1);
+      });
+    });
+
+    showSlide(0);
+  });
